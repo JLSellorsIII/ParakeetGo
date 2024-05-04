@@ -3,6 +3,8 @@ package bot
 import (
 	"fmt"
 
+	"strings"
+
 	"github.com/JLSELLORSIII/ParakeetGo/config"
 
 	"github.com/bwmarrin/discordgo"
@@ -52,4 +54,9 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Content == config.BotPrefix+"ping" {
 		_, _ = s.ChannelMessageSend(m.ChannelID, "pong!")
 	}
+
+	if strings.Contains(m.Content, config.BotPrefix+"create-corpus") {
+		CreateCorpus(s, m)
+	}
+
 }

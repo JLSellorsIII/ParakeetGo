@@ -6,6 +6,7 @@ import (
 	"github.com/JLSELLORSIII/ParakeetGo/config"
 )
 
+// Reads config and starts the bot
 func main() {
 	err := config.ReadConfig()
 
